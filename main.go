@@ -2,33 +2,47 @@ package main
 
 import "fmt"
 
-type Student struct {
-	Name  string
-	Marks int
-	Grade string
+type Account struct {
+	Owner   string
+	Balance int
+}
+
+func findAccount(users []Account, name string) int {
+	for i := 0; i < len(users); i++ {
+		if users[i].Owner == name {
+			return i
+		}
+	}
+	return -1
 }
 
 func main() {
-	students := []Student{
-		{Name: "shakil", Marks: 5},
-		{Name: "Fahad", Marks: 72},
-		{Name: "Uzzal", Marks: 91},
-		{Name: "Sumaiya", Marks: 65},
-		{Name: "Prantu", Marks: 88},
+
+	users := []Account{
+		{Owner: "Shakil", Balance: 4000},
+		{Owner: "Fahad", Balance: 5000},
+		{Owner: "Rahim", Balance: 7000},
 	}
 
-	for i := 0; i < len(students); i++ {
-		if students[i].Marks >= 80 {
-			students[i].Grade = "A+"
-		} else if students[i].Marks >= 70 {
-			students[i].Grade = "A"
-		} else if students[i].Marks >= 60 {
-			students[i].Grade = "B"
-		} else {
-			students[i].Grade = "F"
-		}
-		fmt.Printf("\n %s: %d  ---> %s", students[i].Name, students[i].Marks, students[i].Grade)
+	user := findAccount(users, "Shakil")
+	if user != -1 {
+		users[user].Balance += 500
+		fmt.Printf("\n%s balance: %d", users[user].Owner, users[user].Balance)
+	}
 
+	user = findAccount(users, "Rahim")
+	ammount := 60000
+	if user != -1 {
+		if users[user].Balance >= ammount {
+			users[user].Balance -= ammount
+			fmt.Printf("\n%s balance: %d", users[user].Owner, users[user].Balance)
+		} else {
+			fmt.Println(" \ninffsfficient money")
+		}
+	}
+
+	for _, value := range users {
+		fmt.Printf("\n%s users balance is: %d", value.Owner, value.Balance)
 	}
 
 }
