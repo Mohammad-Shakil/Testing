@@ -2,22 +2,22 @@ package main
 
 import "fmt"
 
-func stringreverse(p string) string {
+func stringReversal(p string) string {
 
-	runes := []int32(p)
+	runes := []byte(p)
 
-	low := 0
-	high := len(runes) - 1
-
-	for low < high {
-		runes[low], runes[high] = runes[high], runes[low]
-		low++
-		high--
+	left := 0
+	right := len(runes) - 1
+	for left < right {
+		runes[left], runes[right] = runes[right], runes[left]
+		left++
+		right--
 	}
 	return string(runes)
+
 }
 
 func main() {
 
-	fmt.Println(stringreverse("shakil"))
+	fmt.Println(stringReversal("Shakil"))
 }
