@@ -2,45 +2,33 @@ package main
 
 import "fmt"
 
+type Student struct {
+	Name  string
+	Marks int
+	Grade string
+}
+
 func main() {
+	students := []Student{
+		{Name: "shakil", Marks: 5},
+		{Name: "Fahad", Marks: 72},
+		{Name: "Uzzal", Marks: 91},
+		{Name: "Sumaiya", Marks: 65},
+		{Name: "Prantu", Marks: 88},
+	}
 
-	students := make(map[string]int)
-	students["Shakil"] = 85
-	students["Rahim"] = 72
-	students["Karim"] = 91
-	students["Farabi"] = 65
-	students["Opu"] = 88
-
-	fmt.Println("----TOP SCORERS----")
-	for name, marks := range students {
-		if marks > 80 {
-			fmt.Printf("\n%s: %d marks", name, marks)
-
+	for i := 0; i < len(students); i++ {
+		if students[i].Marks >= 80 {
+			students[i].Grade = "A+"
+		} else if students[i].Marks >= 70 {
+			students[i].Grade = "A"
+		} else if students[i].Marks >= 60 {
+			students[i].Grade = "B"
+		} else {
+			students[i].Grade = "F"
 		}
-	}
-	fmt.Println()
-	fmt.Println("\n----Avegrage----")
-	var total int
-	result := 0
-	for _, marks := range students {
-		total += marks
+		fmt.Printf("\n %s: %d  ---> %s", students[i].Name, students[i].Marks, students[i].Grade)
 
 	}
-	result = total / len(students)
-	fmt.Println(result)
-	fmt.Println()
-	fmt.Println("----Highest Mark----")
-
-	highest := 0
-	var topscorer string
-	for name, marks := range students {
-
-		if marks > highest {
-			highest = marks
-			topscorer = name
-		}
-
-	}
-	fmt.Printf("%s got hight mark: %d", topscorer, highest)
 
 }
