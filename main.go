@@ -24,9 +24,9 @@ func main() {
 	result := 0
 	for _, marks := range students {
 		total += marks
-		result = total / len(students)
 
 	}
+	result = total / len(students)
 	fmt.Println(result)
 	fmt.Println()
 	fmt.Println("----Highest Mark----")
