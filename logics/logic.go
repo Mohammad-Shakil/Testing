@@ -1,12 +1,11 @@
 package logics
 
-func ListCompress(p []int) []int {
-	var newlist []int
+func Elcheck(p []string) []string {
+	var newlist []string
 	for i := 0; i < len(p); i++ {
-		if p[i] >= 50 {
+		if len(p[i]) > 5 {
 			newlist = append(newlist, p[i])
 		}
 	}
-	p = newlist
-	return p
+	return newlist
 }
