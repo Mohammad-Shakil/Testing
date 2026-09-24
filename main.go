@@ -8,6 +8,7 @@ import (
 func main() {
 	fruits := []string{"apple", "banana", "watermelon", "mango", "pineapple"}
 
-	fmt.Println("Final list: ", logics.Elcheck(fruits))
+	target := 5
+	fmt.Println("Final list: ", logics.Elcheck(fruits, target))
 
 }

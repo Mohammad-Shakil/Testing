@@ -1,9 +1,9 @@
 package logics
 
-func Elcheck(p []string) []string {
+func Elcheck(p []string, minlength int) []string {
 	var newlist []string
 	for i := 0; i < len(p); i++ {
-		if len(p[i]) > 5 {
+		if len(p[i]) > minlength {
 			newlist = append(newlist, p[i])
 		}
 	}
