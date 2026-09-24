@@ -1,15 +1,12 @@
 package logics
 
-func Reversal(P string) string {
-
-	runes := []rune(P)
-	low := 0
-	high := len(runes) - 1
-
-	for low < high {
-		runes[low], runes[high] = runes[high], runes[low]
-		low++
-		high--
+func ListCompress(p []int) []int {
+	var newlist []int
+	for i := 0; i < len(p); i++ {
+		if p[i] >= 50 {
+			newlist = append(newlist, p[i])
+		}
 	}
-	return string(runes)
+	p = newlist
+	return p
 }
