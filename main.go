@@ -8,7 +8,7 @@ func main() {
 
 	fmt.Println("Before:", fruits)
 	index := -1
-	target := "tomedto"
+	target := "tometo"
 	for i := range fruits {
 
 		if fruits[i] == target {
@@ -18,13 +18,16 @@ func main() {
 	if index != -1 {
 		for i := index; i < len(fruits)-1; i++ {
 			fruits[i] = fruits[i+1]
-			fruits = fruits[:len(fruits)-1]
 
 		}
 	} else {
 		fmt.Printf("ERROR NO: %s ", target)
 		return
 	}
-	fmt.Println("After: ", fruits)
+	var newfruit []string
+	for i := 0; i < len(fruits)-1; i++ {
+		newfruit = append(newfruit, fruits[i])
+	}
+	fmt.Println("After: ", newfruit)
 
 }
