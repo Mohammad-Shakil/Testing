@@ -1,25 +1,30 @@
 package main
 
-import (
-	"fmt"
-	"mytesting/logics"
-)
+import "fmt"
 
 func main() {
 
-	fmt.Println("\n----String reversal machine----")
-	fmt.Println()
-	text := []string{"madam", "hello", "lili", "level", "SOS"}
+	fruits := []string{"mango", "apple", "tometo", "pineapple", "lemon", "jackfruit"}
 
-	for i := 0; i < len(text)-1; i++ {
+	fmt.Println("Before:", fruits)
+	index := -1
+	target := "tomedto"
+	for i := range fruits {
 
-		reversed := logics.Reversal(text[i])
-		if reversed == text[i] {
-			fmt.Printf("\n%s: is palindrome \n", reversed)
-		} else {
-			fmt.Printf("\n%s is not plindrome\n", reversed)
+		if fruits[i] == target {
+			index = i
 		}
-
 	}
+	if index != -1 {
+		for i := index; i < len(fruits)-1; i++ {
+			fruits[i] = fruits[i+1]
+			fruits = fruits[:len(fruits)-1]
+
+		}
+	} else {
+		fmt.Printf("ERROR NO: %s ", target)
+		return
+	}
+	fmt.Println("After: ", fruits)
 
 }
